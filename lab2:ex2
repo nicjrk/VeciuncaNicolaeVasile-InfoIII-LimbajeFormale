@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+void generateStrings(string currentString, int iteration, const int maxIteration) {
+    if (iteration > maxIteration) {
+        return; 
+    }
+
+   
+    if (iteration == 1) {
+        cout << "aa bb ";
+    }
+    else {
+        
+        cout << "a" << currentString << "a ";
+        cout << "b" << currentString << "b ";
+    }
+
+  
+    generateStrings("a" + currentString + "a", iteration + 1, maxIteration);
+    generateStrings("b" + currentString + "b", iteration + 1, maxIteration);
+}
+
+int main() {
+    const int maxIteration = 3;
+    generateStrings("", 1, maxIteration);
+    cout << "\n";
+
+    return 0;
+}
