@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void printPalindromes(int length) {
+    for (int num = 0; num < pow(3, length); ++num) {
+        string s = "";
+        int temp = num;
+        for (int i = 0; i < length; ++i) {
+            s = to_string(temp % 3) + s;
+            temp /= 3;
+        }
+        string inv_s = string(s.rbegin(), s.rend());
+        if (s == inv_s) {
+            cout << s << endl;
+        }
+    }
+}
+
+int main() {
+    for (int length = 1; length <= 5; ++length) {
+        cout << "Palindroame de lungime " << length << ":" << endl;
+        printPalindromes(length);
+    }
+    return 0;
+}
